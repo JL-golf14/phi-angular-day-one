@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Day One</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/client.js" charset="utf-8"></script>
+  </head>
+  <body ng-app="BasicApp">
+    <h1>Angular Day One</h1>
+    <div>
+      {{2 + 7 + "taco"}}
+    </div>
+    <div ng-controller="BasicController as bc">
+      <p>bc is: {{bc}}</p>
+      <p>bc.firstExampleVariable: {{bc.firstExampleVariable}}</p>
+      <input ng-model="bc.firstExampleVariable">
+
+      <h2>Favorite Things Section</h2>
+      bc.newFavoriteThing: {{bc.newFavoriteThing}}
+      <input ng-model="bc.newFavoriteThing.name">
+      <input ng-model="bc.newFavoriteThing.happinessPoints">
+      <button ng-click="bc.addNewFavoriteThing()">Add New Favorite Thing</button>
+      <ul>
+        <li ng-repeat="thing in bc.krissFavoriteThings">
+          <!-- thing is an object like { name: 'hockey', happinessPoints: 1500000 } -->
+          {{thing.name}} is worth {{thing.happinessPoints}} happiness points to Kris
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
